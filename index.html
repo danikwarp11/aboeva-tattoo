@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Абоева | Тату Мастер</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="site-wrapper">
+
+        <!-- Шапка -->
+        <header class="header">
+            <div class="logo">АБОЕВА</div>
+            <nav class="nav">
+                <a href="#portfolio">Портфолио</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <button class="btn ms_booking" data-url="https://yclients.com">Записаться</button>
+        </header>
+
+        <!-- Главный баннер -->
+        <section class="hero-section">
+            <div class="hero-bg-grid">
+                <div class="hero-img-item"><img src="hero1.jpg" alt="Тату процесс 1"></div>
+                <div class="hero-img-item"><img src="hero2.jpg" alt="Тату процесс 2"></div>
+                <div class="hero-img-item"><img src="hero3.jpg" alt="Тату процесс 3"></div>
+                <div class="hero-img-item"><img src="hero4.jpg" alt="Тату процесс 4"></div>
+            </div>
+            <div class="hero-content">
+                <h1>Художественная татуировка</h1>
+                <p>Индивидуальные эскизы. Безопасность. Твой стиль.</p>
+                <a href="#portfolio" class="btn-secondary">Смотреть работы</a>
+            </div>
+        </section>
+
+        <!-- Портфолио -->
+        <section id="portfolio" class="portfolio">
+            <h2 class="section-title">Мои работы</h2>
+            <div class="grid-container">
+                <div class="grid-item item-large"><img src="photo1.jpg" alt="Тату" onclick="openLightbox(this.src)"></div>
+                <div class="grid-item item-large"><img src="photo2.jpg" alt="Тату" onclick="openLightbox(this.src)"></div>
+                <div class="grid-item"><img src="photo3.jpg" alt="Тату" onclick="openLightbox(this.src)"></div>
+                <div class="grid-item"><img src="photo4.jpg" alt="Тату" onclick="openLightbox(this.src)"></div>
+                <div class="grid-item"><img src="photo5.jpg" alt="Тату" onclick="openLightbox(this.src)"></div>
+            </div>
+        </section>
+
+        <!-- Просмотр фото -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <img id="lightbox-img" src="" alt="Увеличенное фото">
+        </div>
+
+        <!-- Форма -->
+        <section id="contacts" class="contacts">
+            <h2 class="section-title">Нужен уникальный эскиз?</h2>
+            <p>Оставьте заявку, и я свяжусь с вами для обсуждения идеи</p>
+            <form id="tg-form" class="contact-form">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" placeholder="Номер телефона" required>
+                <textarea name="idea" placeholder="Опишите вашу идею" rows="4"></textarea>
+                <button type="submit" class="btn">Обсудить идею</button>
+            </form>
+        </section>
+
+    </div>
+
+    <script type="text/javascript" src="//://yclients.com" charset="UTF-8"></script>
+    <script src="script.js"></script>
+</body>
+</html>
