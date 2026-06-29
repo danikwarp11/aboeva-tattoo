@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Абоева | Тату Мастер</title>
+    <!-- Подключаем премиальные шрифты Google Fonts -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
@@ -11,9 +12,10 @@
 </head>
 <body>
 
+    <!-- Общий контейнер, который защищает сайт от расползания при изменении масштаба -->
     <div class="site-wrapper">
 
-        <!-- Шапка -->
+        <!-- Шапка сайта -->
         <header class="header">
             <div class="logo">АБОЕВА</div>
             <nav class="nav">
@@ -23,7 +25,7 @@
             <button class="btn ms_booking" data-url="https://yclients.com">Записаться</button>
         </header>
 
-        <!-- Главный баннер -->
+        <!-- Главный баннер с сеткой из 4 вертикальных фото -->
         <section class="hero-section">
             <div class="hero-bg-grid">
                 <div class="hero-img-item"><img src="hero1.jpg" alt="Тату процесс 1"></div>
@@ -38,24 +40,24 @@
             </div>
         </section>
 
-        <!-- Портфолио -->
+        <!-- Галерея (Портфолио на 5 фото с премиум-раскладкой) -->
         <section id="portfolio" class="portfolio">
             <h2 class="section-title">Мои работы</h2>
             <div class="grid-container">
-                <div class="grid-item item-large"><img src="photo1.jpg" alt="Тату" onclick="openLightbox(this.src)"></div>
-                <div class="grid-item item-large"><img src="photo2.jpg" alt="Тату" onclick="openLightbox(this.src)"></div>
-                <div class="grid-item"><img src="photo3.jpg" alt="Тату" onclick="openLightbox(this.src)"></div>
-                <div class="grid-item"><img src="photo4.jpg" alt="Тату" onclick="openLightbox(this.src)"></div>
-                <div class="grid-item"><img src="photo5.jpg" alt="Тату" onclick="openLightbox(this.src)"></div>
+                <div class="grid-item item-large"><img src="photo1.jpg" alt="Тату Абоева" onclick="openLightbox(this.src)"></div>
+                <div class="grid-item item-large"><img src="photo2.jpg" alt="Тату Абоева" onclick="openLightbox(this.src)"></div>
+                <div class="grid-item"><img src="photo3.jpg" alt="Тату Абоева" onclick="openLightbox(this.src)"></div>
+                <div class="grid-item"><img src="photo4.jpg" alt="Тату Абоева" onclick="openLightbox(this.src)"></div>
+                <div class="grid-item"><img src="photo5.jpg" alt="Тату Абоева" onclick="openLightbox(this.src)"></div>
             </div>
         </section>
 
-        <!-- Просмотр фото -->
+        <!-- Окно плавного просмотра увеличенного фото (Lightbox) -->
         <div id="lightbox" class="lightbox" onclick="closeLightbox()">
             <img id="lightbox-img" src="" alt="Увеличенное фото">
         </div>
 
-        <!-- Форма -->
+        <!-- Чистая форма заявки (без action и method, управляется через JS) -->
         <section id="contacts" class="contacts">
             <h2 class="section-title">Нужен уникальный эскиз?</h2>
             <p>Оставьте заявку, и я свяжусь с вами для обсуждения идеи</p>
@@ -67,8 +69,9 @@
             </form>
         </section>
 
-    </div>
+    </div> <!-- Конец site-wrapper -->
 
+    <!-- Скрипт виджета онлайн-записи YCLIENTS -->
     <script type="text/javascript" src="//://yclients.com" charset="UTF-8"></script>
     <script src="script.js"></script>
 </body>

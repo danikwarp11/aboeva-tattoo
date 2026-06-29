@@ -1,4 +1,4 @@
-// Открытие фотографии во весь экран с плавной анимацией
+// Открытие фотографии во весь экран
 function openLightbox(src) {
     const lightbox = document.getElementById('lightbox');
     const img = document.getElementById('lightbox-img');
@@ -11,33 +11,47 @@ function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
 }
 
-// Перехват отправки формы и передача данных на бэкэнд без перезагрузки
+// Прямая отправка формы без бэкэнда Node.js
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('tg-form');
     
     if (form) {
         form.addEventListener('submit', async function(e) {
-            e.preventDefault(); // Запрещаем браузеру мгновенно стирать данные и перезагружать страницу
+            e.preventDefault(); // Запрещаем перезагрузку
             
             const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const idea = formData.get('idea') || 'Не указана';
+
+            // Формируем текст заявки
+            const messageText = `⚡️ Новая заявка на тату!\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📝 Идея: ${idea}`;
+            
+            // Ваши реальные данные бота и чата
+            const token = '8970923367:AAGjw9Rar_JEmcgdMueu8w3asWqp-Q46WUg';
+            const chatId = '760353029';
+
+            // Прямая ссылка на отправку через безотказный шлюз tgbot
+            const url = `https://tgbot.co{token}/sendMessage`;
 
             try {
-                // Относительный путь для работы в общем доступе в интернете
-                const response = await fetch('/api/lead', {
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: messageText
+                    })
                 });
 
                 if (response.ok) {
-                    alert('🔥 Заявка успешно отправлена! Мастер свяжется с вами.');
-                    this.reset(); // Форма очищается только после успешного ответа сервера
+                    alert('🔥 Заявка успешно отправлена! Я свяжусь с вами в Telegram.');
+                    this.reset();
                 } else {
-                    alert('❌ Ошибка на стороне бэкэнд-сервера. Проверьте логи хостинга.');
+                    alert('❌ Ошибка шлюза. Пожалуйста, проверьте, нажат ли СТАРТ у вашего бота в Телеграм.');
                 }
             } catch (error) {
-                alert('🔌 Нет связи с сервером. Пожалуйста, попробуйте отправить заявку позже.');
+                alert('🔌 Ошибка отправки. Попробуйте еще раз.');
             }
         });
     }
